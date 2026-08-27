@@ -1,6 +1,13 @@
-FROM node:17.9.1-alpine
+FROM node:22-alpine
+
 WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install --omit=dev
+
 COPY . .
-RUN npm install
+
+RUN npm run validate-env
 RUN npm run deploy
-CMD [ "node", "index.js" ]
+
+CMD ["node", "index.js"]

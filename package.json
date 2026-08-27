@@ -23,19 +23,8 @@
   "engines": {
     "node": ">=22 <23"
   },
-  "keywords": [
-    "discord",
-    "discord-bot",
-    "discord-musicbot",
-    "music",
-    "discord-music",
-    "lavalink"
-  ],
-  "authors": [
-    "Kanha",
-    "SudhanPlayz",
-    "DarrenOfficial"
-  ],
+  "keywords": ["discord", "discord-bot", "discord-musicbot", "music", "discord-music", "lavalink"],
+  "authors": ["Kanha", "SudhanPlayz", "DarrenOfficial"],
   "license": "Apache-2.0",
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
@@ -59,6 +48,7 @@
     "express-ws": "^5.0.2",
     "js-yaml": "^4.1.0",
     "jsoning": "^0.13.0",
+    "kazagumo": "3.4.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
@@ -68,6 +58,7 @@
     "passport-discord": "^0.1.4",
     "pretty-ms": "^7.0.1",
     "rlyrics": "^2.0.1",
+    "shoukaku": "4.3.0",
     "systeminformation": "^5.9.12",
     "winston": "^3.3.3",
     "youtube-sr": "^4.3.4"

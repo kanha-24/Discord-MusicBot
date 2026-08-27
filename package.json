@@ -1,43 +1,42 @@
 {
   "name": "discord-musicbot",
-  "version": "5.0.0-beta",
-  "description": "Very simple discord music bot with the discord.js with Song Name playing. It can able to play music with the song name",
+  "version": "6.0.0-beta.1",
+  "description": "Modernized Discord music bot with Lavalink and web dashboard",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "node index.js",
+    "validate-env": "node scripts/validate-env.js",
     "rm-logs": "rm logs.log",
     "lint": "prettier --check .",
-    "deploy": "node deploy/deployGlobal",
-    "guild": "node deploy/deployGuild",
-    "destroy-guild": "node deploy/destroyGuild",
-    "destroy-global": "node deploy/destroyGlobal",
+    "deploy": "node deploy/deployGlobal.js",
+    "guild": "node deploy/deployGuild.js",
+    "destroy-guild": "node deploy/destroyGuild.js",
+    "destroy-global": "node deploy/destroyGlobal.js",
     "ddev": "cd dashboard && npm run dev",
     "dbuild": "cd dashboard && npm run build && npm run export",
     "dstart": "cd dashboard && npm run start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SudhanPlayz/Discord-MusicBot.git"
+    "url": "git+https://github.com/kanha-24/Discord-MusicBot.git"
   },
   "engines": {
-    "node": ">=16.x <=16.16"
+    "node": ">=22 <23"
   },
   "keywords": [
     "discord",
     "discord-bot",
     "discord-musicbot",
     "music",
-    "discord-music"
+    "discord-music",
+    "lavalink"
   ],
   "authors": [
+    "Kanha",
     "SudhanPlayz",
     "DarrenOfficial"
   ],
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/SudhanPlayz/Discord-MusicBot/issues"
-  },
-  "homepage": "https://github.com/SudhanPlayz/Discord-MusicBot#readme",
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
     "@discordjs/rest": "^1.5.0",
@@ -75,9 +74,5 @@
   },
   "devDependencies": {
     "prettier": "2.6.2"
-  },
-  "volta": {
-    "node": "16.15.1",
-    "yarn": "3.3.0"
   }
 }

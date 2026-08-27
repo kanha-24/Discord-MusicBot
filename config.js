@@ -16,8 +16,7 @@ const nodes = [
 		password: process.env.LAVALINK_PASSWORD || "",
 		secure: process.env.LAVALINK_SECURE === "true",
 	}),
-	makeNode("2"),
-	makeNode("3"),
+	...Array.from({ length: 9 }, (_, i) => makeNode(String(i + 2))),
 ].filter((node) => node.host);
 
 module.exports = {

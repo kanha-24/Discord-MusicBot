@@ -7,6 +7,4 @@ RUN npm install --omit=dev
 
 COPY . .
 
-RUN npm run deploy
-
 CMD ["node", "index.js"]

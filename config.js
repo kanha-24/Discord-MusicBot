@@ -6,6 +6,7 @@ module.exports = {
 	clientId: process.env.CLIENT_ID || "",
 	clientSecret: process.env.CLIENT_SECRET || "",
 	port: Number(process.env.PORT || 4200),
+	prefix: process.env.PREFIX || "!",
 	scopes: ["identify", "guilds", "applications.commands"],
 	inviteScopes: ["bot", "applications.commands"],
 	serverDeafen: true,

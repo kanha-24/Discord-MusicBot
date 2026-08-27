@@ -1,15 +1,29 @@
-//JotaroKujo0525 note, this is a deed that i should've done a long time ago
-require('dotenv').config()
+require("dotenv").config();
+
+const required = ["TOKEN", "CLIENT_ID", "CLIENT_SECRET", "COOKIE_SECRET", "LAVALINK_HOST", "LAVALINK_PASSWORD"];
+const missing = required.filter((key) => !process.env[key]);
+
+if (missing.length) {
+	console.error(`Missing required environment variables: ${missing.join(", ")}`);
+	console.error("Copy .env.example to .env and fill in the values before starting the bot.");
+	process.exit(1);
+}
+
+const lavalinkPort = Number(process.env.LAVALINK_PORT || 2333);
+if (!Number.isInteger(lavalinkPort) || lavalinkPort < 1 || lavalinkPort > 65535) {
+	console.error("LAVALINK_PORT must be a valid TCP port.");
+	process.exit(1);
+}
 
 const DiscordMusicBot = require("./lib/DiscordMusicBot");
 const { exec } = require("child_process");
 
 if (process.env.REPL_ID) {
-	console.log("Replit system detected, initiating special `unhandledRejection` event listener.")
-	process.on('unhandledRejection', (reason, promise) => {
+	console.log("Replit system detected, initiating special unhandledRejection event listener.");
+	process.on("unhandledRejection", (reason, promise) => {
 		promise.catch((err) => {
 			if (err.status === 429) {
-				console.log("something went wrong whilst trying to connect to discord gateway, resetting...");
+				console.log("Something went wrong whilst trying to connect to Discord Gateway, resetting...");
 				exec("kill 1");
 			}
 		});
@@ -17,8 +31,7 @@ if (process.env.REPL_ID) {
 }
 
 const client = new DiscordMusicBot();
-
-console.log("Make sure to fill in the config.js before starting the bot.");
+console.log("Starting Discord Music Bot...");
 
 const getClient = () => client;
 
